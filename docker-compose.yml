@@ -1,9 +1,9 @@
 version: "3.6"
 
 services:
-  wallet-history-app:
-    container_name: wallet-history-app
-    image: 'history:latest'
+  history-app:
+    container_name: history-app
+    image: 'wallet-history:latest'
     build:
       context: .
       dockerfile: Dockerfile

@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>me.wallet</groupId>
-    <artifactId>history</artifactId>
+    <artifactId>wallet-history</artifactId>
     <version>1.0.0</version>
-    <name>history</name>
+    <name>wallet-history</name>
     <description>History service</description>
     <properties>
         <java.version>11</java.version>
@@ -83,7 +83,17 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
-
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
         <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
