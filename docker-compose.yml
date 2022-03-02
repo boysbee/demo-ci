@@ -1,0 +1,34 @@
+version: "3.6"
+
+services:
+  wallet-history-app:
+    container_name: wallet-history-app
+    image: 'history:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+      - 9001:9001
+    networks:
+      - demo-ci-test
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  db:
+    image: 'postgres:14-alpine'
+    container_name: db
+    ports:
+      - 5432:5432
+    networks:
+      - demo-ci-test
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+networks:
+    demo-ci-test:
+        driver: bridge
