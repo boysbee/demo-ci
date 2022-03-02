@@ -11,8 +11,8 @@
     <groupId>me.wallet</groupId>
     <artifactId>history</artifactId>
     <version>1.0.0</version>
-    <name>wallet-history</name>
-    <description>Wallet history service</description>
+    <name>history</name>
+    <description>History service</description>
     <properties>
         <java.version>11</java.version>
         <kotlin.version>1.6.10</kotlin.version>
