@@ -1,0 +1,32 @@
+server:
+  servlet:
+    context-path: /wallet-history
+  port: 8081
+
+management:
+  server:
+    port: 9002
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+      base-path: "/"
+      path-mapping:
+        health: "health"
+        info: "info"
+
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: public
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/compose-postgres
+    username: compose-postgres
+    password: compose-postgres
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
